@@ -1,1 +1,4 @@
 djangorestframework==3.13.1
+pymongo[tls,srv]==3.5.1
+django-cors-headers==3.11.0
+requests==2.20.0
