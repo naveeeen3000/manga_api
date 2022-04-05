@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from decouple import config
+import dns
 
 def get_connection(collection_name):
     client=MongoClient(config('MONGO_URL'))

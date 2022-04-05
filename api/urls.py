@@ -4,6 +4,6 @@ appname="api"
 
 
 urlpatterns = [
-    path("search",SearchAPIView.as_view(),name='search'),
+    path("search/",SearchAPIView.as_view(),name='search'),
 
 ]
