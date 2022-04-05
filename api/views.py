@@ -9,7 +9,9 @@ from rest_framework import status
 
 class SearchAPIView(APIView):
     """
-    <font color=red>/search</font>
+    Search Api
+    Usage:
+        <https://127.0.0.1:8080/api/v1/search/?q={keyword}>
 
     """
 
