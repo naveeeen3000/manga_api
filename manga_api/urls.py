@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 from django.db import models
 from . import views
+# from rest_framework.authtoken import views
 
 urlpatterns = [
     # path('',include(router.urls)),
@@ -12,5 +13,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.IndexView.as_view(),name='index'),
     path('api/v1/',include("api.urls")),
+    path('api-auth/', include('rest_framework.urls'))
 
 ]

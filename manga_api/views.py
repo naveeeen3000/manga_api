@@ -20,5 +20,7 @@ class IndexView(APIView):
         # base_url=request.stream
         result={
             "search_api":base_url+'api/v1/search/?q=',
+            "accounts_api":base_url+'api/v1/user/',
+            "login_api": base_url+"api/v1/user/login/"
         }
         return Response(result)
