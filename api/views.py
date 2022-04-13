@@ -41,7 +41,7 @@ class SearchAPIView(APIView):
             {
                 "$project":{
                     "_id":0,
-                    "score": { "$meta": "searchScore" }
+                    
                 }
             }
             ])
