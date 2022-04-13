@@ -36,17 +36,12 @@ def searchView(request):
             {
                 "$project":{
                     "_id":0,
-<<<<<<< HEAD
-                    
-                }
-=======
                     # "canonicalTitle":1,
                     # "score": { "$meta": "searchScore" }
                     }
             },
             {
             "$limit":5
->>>>>>> f1d63e5af8ee04e95ac4dcc554490f98ef11c6df
             }
         ])
         return Response(data={"data":res},status=status.HTTP_200_OK)
@@ -94,3 +89,31 @@ class AccountsAPIView(APIView):
 @permission_classes([IsAuthenticated])
 def loginAPIView(request,*args,**kwargs):
     pass
+
+
+
+class MangaAPIView(APIView):
+    """
+    
+    Manga Api: 
+    
+    GET:
+    \tquery_params={manga_id}
+
+    """
+    
+    authentication_classes=[BasicAuthentication,TokenAuthentication]
+    permission_classes=[IsAuthenticated]
+
+
+    def get(self,request):
+        manga_id=request.query_params.get("manga_id",False)
+        if not manga_id:
+            return Response({"data":"please provide manga_id as parameter"},status=status.HTTP_400_BAD_REQUEST)
+
+        coll=get_connection('anime-2')
+        res=coll.find_one({"manga_id":manga_id},{"_id":0})
+        if not res:
+            return Response({"data":"invalid manga_id"},status=status.HTTP_406_NOT_ACCEPTABLE)
+        return Response({"data":res},status=status.HTTP_200_OK)
+
