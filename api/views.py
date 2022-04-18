@@ -6,8 +6,7 @@ from rest_framework.decorators import api_view,authentication_classes,permission
 from rest_framework.authentication import SessionAuthentication,BasicAuthentication,TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from .serializers import LoginSerializer
-from utils import get_connection
-
+from utils import get_connection,validate_login_creds
 
 
 @api_view(['GET'])
@@ -19,6 +18,9 @@ def searchView(request):
     if not search_query:
         return Response(data={"data":"no query provided"},status=status.HTTP_406_NOT_ACCEPTABLE)
     Collection=get_connection('anime-2')
+    if not collection['status']:
+        return Response({'data':collection['data']},status=status.HTTP_406_NOT_ACCEPTABLE)
+    collection=collection['data']
     try:
         res=Collection.aggregate([
             {
@@ -26,7 +28,7 @@ def searchView(request):
                     "index":"search_index",
                     "text":{
                         "query":search_query,
-                        "path":"canonicalTitle",
+                        "path":["canonicalTitle","titles","slug"],
                         "fuzzy":{
                             "maxEdits":2,
                     }
@@ -44,6 +46,8 @@ def searchView(request):
             "$limit":5
             }
         ])
+        # res=collection.find({'canonicalTitle':search_query,{'titles':{"en_jp":search_query}}},{"_id":0})
+        print(res)
         return Response(data={"data":res},status=status.HTTP_200_OK)
     except:
         return Response(data={'data':"No response found"},status=status.HTTP_400_BAD_REQUEST)
@@ -51,13 +55,15 @@ def searchView(request):
 
 class AccountsAPIView(APIView):
     
-    serializer_class=LoginSerializer
     authentication_classes=[BasicAuthentication,TokenAuthentication]
     permission_classes=[IsAuthenticated]
 
     def get(self,request,*args,**kwargs):
         coll=get_connection('users')
-        # out={}
+        print(coll)
+        if not coll['status']:
+            return Response({"data":coll['data']},status=status.HTTP_406_NOT_ACCEPTABLE)
+        coll=coll['data'] 
         res=coll.find({},{"_id":0,'password':0})
         if not res:
             return Response({"data":"not able to fetch accounts"},status=status.HTTP_400_BAD_REQUEST)
@@ -65,23 +71,20 @@ class AccountsAPIView(APIView):
 
 
     def post(self,request,*args,**kwargs):
-        payload={
-                "name":request.POST.get('name'),
-                "email":request.POST.get('email'),
-                "password":request.POST.get('password'),
-                "created_at": request.POST.get("created_at")
-            }
-        # payload=dict(payload)
-        # payload.pop('csrfmiddlewaretoken')
-        # print(payload)
-        serializer=self.serializer_class(data=payload)
-        if serializer.is_valid(raise_exception=True):
-            # print(serializer.data)
-            serializer.save()
-            return Response({"data":"user created"},status=status.HTTP_201_CREATED)
-        return Response({"data":"invalid data"},status=status.HTTP_400_BAD_REQUEST)
-        # serializer=this.serializer_class()
-
+        payload=request.data
+        collection=get_connection('users')
+        if not collection['status']:
+            return Response({"data":collection['data']},status=status.HTTP_400_BAD_REQUEST)
+        collection=collection['data']
+        validated=validate_login_creds(payload)
+        if not validated['status']:
+            return Response({'data':validated['data']},status=status.HTTP_406_NOT_ACCEPTABLE)
+        login_data=validated['data']
+        res=collection.insert_one(login_data)
+        if not res.acknowledged:
+            return Response({"data":"not inserted into database"},status=status.HTTP_200_OK)
+        return Response({"data":"data inserted"},status=status.HTTP_201_CREATED)
+        
 
 
 @api_view(["post"])
@@ -111,8 +114,11 @@ class MangaAPIView(APIView):
         if not manga_id:
             return Response({"data":"please provide manga_id as parameter"},status=status.HTTP_400_BAD_REQUEST)
 
-        coll=get_connection('anime-2')
-        res=coll.find_one({"manga_id":manga_id},{"_id":0})
+        collection=get_connection('anime-2')
+        if not collection['status']:
+            return Response({"data":collection['data']},status=status.HTTP_406_NOT_ACCEPTABLE)
+        collection=collection['data']
+        res=collection.find_one({"manga_id":manga_id},{"_id":0})
         if not res:
             return Response({"data":"invalid manga_id"},status=status.HTTP_406_NOT_ACCEPTABLE)
         return Response({"data":res},status=status.HTTP_200_OK)
