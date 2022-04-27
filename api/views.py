@@ -18,9 +18,9 @@ def searchView(request):
     if not search_query:
         return Response(data={"data":"no query provided"},status=status.HTTP_406_NOT_ACCEPTABLE)
     Collection=get_connection('anime-2')
-    if not collection['status']:
-        return Response({'data':collection['data']},status=status.HTTP_406_NOT_ACCEPTABLE)
-    collection=collection['data']
+    if not Collection['status']:
+        return Response({'data':Collection['data']},status=status.HTTP_406_NOT_ACCEPTABLE)
+    Collection=Collection['data']
     try:
         res=Collection.aggregate([
             {
@@ -46,8 +46,7 @@ def searchView(request):
             "$limit":5
             }
         ])
-        # res=collection.find({'canonicalTitle':search_query,{'titles':{"en_jp":search_query}}},{"_id":0})
-        print(res)
+        
         return Response(data={"data":res},status=status.HTTP_200_OK)
     except:
         return Response(data={'data':"No response found"},status=status.HTTP_400_BAD_REQUEST)
