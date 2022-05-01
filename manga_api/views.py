@@ -19,9 +19,10 @@ class IndexView(APIView):
         # base_url=request.stream
         result={
 
-            "search_api":base_url+'api/v1/search/?q=',
-            "accounts_api":base_url+'api/v1/user/',
-            "manga_details_api":base_url+'api/v1/manga/details/',
+            "search":base_url+'api/v1/search/?q=',
+            "accounts":base_url+'api/v1/user/',
+            "manga_details":base_url+'api/v1/manga/details/',
+            'popular_manga':base_url+'api/v1/manga/popular/'
             # "login_api": base_url+"api/v1/user/login/"
         }
         return Response(result)

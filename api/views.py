@@ -59,7 +59,6 @@ class AccountsAPIView(APIView):
 
     def get(self,request,*args,**kwargs):
         coll=get_connection('users')
-        print(coll)
         if not coll['status']:
             return Response({"data":coll['data']},status=status.HTTP_406_NOT_ACCEPTABLE)
         coll=coll['data'] 
@@ -122,3 +121,17 @@ class MangaAPIView(APIView):
             return Response({"data":"invalid manga_id"},status=status.HTTP_406_NOT_ACCEPTABLE)
         return Response({"data":res},status=status.HTTP_200_OK)
 
+
+
+@api_view(['get'])
+@authentication_classes([TokenAuthentication,BasicAuthentication,SessionAuthentication])
+@permission_classes([IsAuthenticated])
+def get_popular_manga(APIView):
+    coll=get_connection('anime-2')
+    if not coll['status']:
+        return Response({"data":coll['data']},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    coll=coll['data']
+    popular_manga=list(coll.find({},{'_id':0}).sort('popularityRank').limit(10))
+    if not popular_manga:
+        return Response({'data':"No response"},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    return Response({"data":popular_manga})

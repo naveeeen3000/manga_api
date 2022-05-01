@@ -1,9 +1,6 @@
 djangorestframework==3.13.1
-<<<<<<< HEAD
-pymongo[tls,srv]
-=======
 pymongo==4.1.0 
->>>>>>> f1d63e5af8ee04e95ac4dcc554490f98ef11c6df
 django-cors-headers==3.11.0
 requests==2.20.0
-pymongo==3.5.1
+python-decouple==3.6
+bcrypt==3.2.0
