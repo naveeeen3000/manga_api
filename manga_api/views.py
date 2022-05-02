@@ -22,7 +22,9 @@ class IndexView(APIView):
             "search":base_url+'api/v1/search/?q=',
             "accounts":base_url+'api/v1/user/',
             "manga_details":base_url+'api/v1/manga/details/',
-            'popular_manga':base_url+'api/v1/manga/popular/'
+            'popular_manga':base_url+'api/v1/manga/popular/',
+            "by_genre":base_url+'api/v1/manga/?genre=action',
+            "by_tags":base_url+'api/v1/manga/tags/?tag=comedy',
             # "login_api": base_url+"api/v1/user/login/"
         }
         return Response(result)

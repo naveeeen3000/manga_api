@@ -126,12 +126,58 @@ class MangaAPIView(APIView):
 @api_view(['get'])
 @authentication_classes([TokenAuthentication,BasicAuthentication,SessionAuthentication])
 @permission_classes([IsAuthenticated])
-def get_popular_manga(APIView):
+def get_popular_manga(request):
     coll=get_connection('anime-2')
     if not coll['status']:
         return Response({"data":coll['data']},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     coll=coll['data']
-    popular_manga=list(coll.find({},{'_id':0}).sort('popularityRank').limit(10))
+    popular_manga=list(coll.find({},{'_id':0}).sort('averageRating',-1).limit(10))
     if not popular_manga:
         return Response({'data':"No response"},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     return Response({"data":popular_manga})
+
+
+@api_view(['get'])
+@authentication_classes([TokenAuthentication,BasicAuthentication,SessionAuthentication])
+@permission_classes([IsAuthenticated])
+def get_manga_by_genre(request):
+    params=request.query_params
+    genre=params.get('genre',False)
+    print(genre)
+    if not genre:
+        return Response({"data":"genre not provided"},status=status.HTTP_406_NOT_ACCEPTABLE)
+    coll=get_connection('manga')
+    if not coll['status']:
+        return Response({'data':coll['data']},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    coll=coll['data']
+    try:
+        response=list(coll.find({},{'_id':0}).limit(10))
+        
+        if not response:
+            return Response({'data':'db fetch error'},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response({'data':response},status=status.HTTP_200_OK)
+    except:
+        return Respinse({"data":"db connection error","error":response.error},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@api_view(['get'])
+@authentication_classes([TokenAuthentication,BasicAuthentication,SessionAuthentication])
+@permission_classes([IsAuthenticated])
+def get_anime_by_tags(request):
+    params=request.query_params
+    tag=params.get('tag',False)
+    print(tag)
+    if not tag:
+        return Response({"data":"provide Query parameter"},status=status.HTTP_406_NOT_ACCEPTABLE)
+    collection=get_connection('anime')
+    if not collection['status']:
+        return Response({"data":collection['data']},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    coll=collection['data']
+    try:
+        response=list(coll.find({'tags':[tag]},{'_id':0}).limit(10))
+        
+        if not response:
+            return Response({"data":"db fetch error"},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response({"data":response},status=status.HTTP_200_OK)
+    except:
+        return Response({"data":"db fetch error"},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
