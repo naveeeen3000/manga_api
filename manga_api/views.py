@@ -25,6 +25,7 @@ class IndexView(APIView):
             'popular_manga':base_url+'api/v1/manga/popular/',
             "by_genre":base_url+'api/v1/manga/?genre=action',
             "by_tags":base_url+'api/v1/manga/tags/?tag=comedy',
+            'read_manga':base_url+'api/v1/manga/read?manga_title=Attack on Titan'
             # "login_api": base_url+"api/v1/user/login/"
         }
         return Response(result)

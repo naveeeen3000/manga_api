@@ -131,7 +131,7 @@ def get_popular_manga(request):
     if not coll['status']:
         return Response({"data":coll['data']},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     coll=coll['data']
-    popular_manga=list(coll.find({},{'_id':0}).sort('averageRating',-1).limit(10))
+    popular_manga=list(coll.find({},{'_id':0}).sort('popularityRank',1).limit(20))
     if not popular_manga:
         return Response({'data':"No response"},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     return Response({"data":popular_manga})
@@ -151,7 +151,7 @@ def get_manga_by_genre(request):
         return Response({'data':coll['data']},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     coll=coll['data']
     try:
-        response=list(coll.find({},{'_id':0}).limit(10))
+        response=list(coll.find({},{'_id':0,'chapters':0}).limit(10))
         
         if not response:
             return Response({'data':'db fetch error'},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -181,3 +181,43 @@ def get_anime_by_tags(request):
         return Response({"data":response},status=status.HTTP_200_OK)
     except:
         return Response({"data":"db fetch error"},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+
+
+@api_view(['get'])
+@authentication_classes([TokenAuthentication,BasicAuthentication,SessionAuthentication])
+@permission_classes([IsAuthenticated])
+def get_read_manga(request):
+    manga_title=request.query_params.get('manga_title',False)
+    if not manga_title:
+        return Response({'data':"no query provided"},status=status.HTTP_406_NOT_ACCEPTABLE)
+
+    collection=get_connection('manga')
+    if not collection['status']:
+        return Response({'data':collection['data']},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    coll=collection['data']
+    res=coll.aggregate([
+        {
+            '$search':{
+                'index':'search_index',
+                'text':{
+                    'query': manga_title,
+                    'path':'title',
+                }
+            }
+        },
+        {
+            '$project':{
+                '_id':0
+            }
+        },
+        {
+            '$limit':1
+        }
+    ])
+
+    res=list(res)
+    return Response({"data":res},status=status.HTTP_200_OK)
+

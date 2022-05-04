@@ -12,4 +12,5 @@ urlpatterns = [
     path("manga/popular/",views.get_popular_manga,name='popular'),
     path("manga/",views.get_manga_by_genre,name='genre'),
     path("manga/tags/",views.get_anime_by_tags,name='tags'),
+    path('manga/read/',views.get_read_manga,name='read_manga')
 ]
