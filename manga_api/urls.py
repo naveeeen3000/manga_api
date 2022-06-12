@@ -8,11 +8,15 @@ from . import views
 # from rest_framework.authtoken import views
 
 urlpatterns = [
-    # path('',include(router.urls)),
-    path('api-auth',include('rest_framework.urls',namespace='rest_framework')),
     path('admin/', admin.site.urls),
     path('',views.IndexView.as_view(),name='index'),
     path('api/v1/',include("api.urls")),
-    path('api-auth/', include('rest_framework.urls'))
+    path('api-auth/', include('rest_framework.urls')),
+    path('accounts/',include('accounts.urls'))
 
 ]
+
+
+admin.site.site_header = "Manga World Admin"
+admin.site.site_title = "Manga World Admin Portal"
+admin.site.index_title = "Welcome to Manga World Admin"

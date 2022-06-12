@@ -3,6 +3,10 @@ from rest_framework import authentication,permissions
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication,BasicAuthentication,SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view
+
+
+
 
 class IndexView(APIView):
     """
@@ -14,18 +18,22 @@ class IndexView(APIView):
     permission_classes=[IsAuthenticated]
 
     def get(self,request,*args,**kwargs):
-        # print(request.)
         base_url =  "{0}://{1}{2}".format(request.scheme, request.get_host(), request.path)
-        # base_url=request.stream
         result={
-
-            "search":base_url+'api/v1/search/?q=',
-            "accounts":base_url+'api/v1/user/',
-            "manga_details":base_url+'api/v1/manga/details/',
-            'popular_manga':base_url+'api/v1/manga/popular/',
-            "by_genre":base_url+'api/v1/manga/?genre=action',
-            "by_tags":base_url+'api/v1/manga/tags/?tag=comedy',
-            'read_manga':base_url+'api/v1/manga/read?manga_title=Attack on Titan'
+            "admin":base_url+'admin',
+            "manga_api":base_url+"api/v1/",
+            "accounts":base_url+'accounts/'
             # "login_api": base_url+"api/v1/user/login/"
         }
         return Response(result)
+
+
+@api_view(['get'])
+def user_view(request):
+    base_url="{0}://{1}{2}".format(request.scheme, request.get_host(), request.path)
+
+    result={
+    'create_user':base_url+'user/create'
+    }
+
+    return Response(result)

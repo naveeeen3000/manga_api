@@ -9,6 +9,25 @@ from .serializers import LoginSerializer
 from utils import get_connection,validate_login_creds
 
 
+
+
+@api_view(['GET'])
+@authentication_classes([TokenAuthentication,BasicAuthentication,SessionAuthentication])
+@permission_classes([IsAuthenticated])
+def index_view(request):
+    base_url =  "{0}://{1}{2}".format(request.scheme, request.get_host(), request.path)
+    result={
+        "search":base_url+'search/?q=',
+        "manga_details":base_url+'manga/details/',
+        'popular_manga':base_url+'manga/popular/',
+        "by_genre":base_url+'manga/?genre=action',
+        "by_tags":base_url+'manga/tags/?tag=comedy',
+        'read_manga':base_url+'manga/read?manga_title=Attack on Titan'
+    }
+    return Response(result,status=status.HTTP_200_OK)
+
+
+
 @api_view(['GET'])
 @authentication_classes([TokenAuthentication, BasicAuthentication,SessionAuthentication])
 @permission_classes([IsAuthenticated])
@@ -17,7 +36,7 @@ def searchView(request):
     search_query=query_params.get("q",False)
     if not search_query:
         return Response(data={"data":"no query provided"},status=status.HTTP_406_NOT_ACCEPTABLE)
-    Collection=get_connection('anime-2')
+    Collection=get_connection('manga')
     if not Collection['status']:
         return Response({'data':Collection['data']},status=status.HTTP_406_NOT_ACCEPTABLE)
     Collection=Collection['data']
@@ -28,7 +47,7 @@ def searchView(request):
                     "index":"search_index",
                     "text":{
                         "query":search_query,
-                        "path":["canonicalTitle","titles","slug"],
+                        "path":["title"],
                         "fuzzy":{
                             "maxEdits":2,
                     }
@@ -38,6 +57,7 @@ def searchView(request):
             {
                 "$project":{
                     "_id":0,
+                    'chapters':0
                     # "canonicalTitle":1,
                     # "score": { "$meta": "searchScore" }
                     }
@@ -127,11 +147,11 @@ class MangaAPIView(APIView):
 @authentication_classes([TokenAuthentication,BasicAuthentication,SessionAuthentication])
 @permission_classes([IsAuthenticated])
 def get_popular_manga(request):
-    coll=get_connection('anime-2')
+    coll=get_connection('manga')
     if not coll['status']:
         return Response({"data":coll['data']},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     coll=coll['data']
-    popular_manga=list(coll.find({},{'_id':0}).sort('popularityRank',1).limit(20))
+    popular_manga=list(coll.find({},{'_id':0,'chapters':0}).sort('popularity_rank',1).limit(10))
     if not popular_manga:
         return Response({'data':"No response"},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     return Response({"data":popular_manga})
@@ -143,7 +163,6 @@ def get_popular_manga(request):
 def get_manga_by_genre(request):
     params=request.query_params
     genre=params.get('genre',False)
-    print(genre)
     if not genre:
         return Response({"data":"genre not provided"},status=status.HTTP_406_NOT_ACCEPTABLE)
     coll=get_connection('manga')
@@ -151,13 +170,13 @@ def get_manga_by_genre(request):
         return Response({'data':coll['data']},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     coll=coll['data']
     try:
-        response=list(coll.find({},{'_id':0,'chapters':0}).limit(10))
-        
+        response=list(coll.find({'genre':genre},{'_id':0,'chapters':0}).sort('popularity_rank').limit(10))
+        print(len(response))
         if not response:
             return Response({'data':'db fetch error'},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         return Response({'data':response},status=status.HTTP_200_OK)
     except:
-        return Respinse({"data":"db connection error","error":response.error},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response({"data":"db query error"},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 @api_view(['get'])

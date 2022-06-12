@@ -4,6 +4,7 @@ import dns
 import random
 import uuid
 import bcrypt
+from uuid import uuid4
 
 
 def get_connection(collection_name):
@@ -51,3 +52,8 @@ def validate_login_creds(data):
         data['password']=hashed_password
         return {"status":True,"data":data}
 
+
+
+def generate_user_token():
+
+    return uuid4()

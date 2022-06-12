@@ -1,19 +1,13 @@
-
 from pathlib import Path
 import rest_framework
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-q*k0t3i+1)ejob0j0(hja1)r508c=nzr+$rjlwdi6fg^zp4*i-'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -27,8 +21,8 @@ INSTALLED_APPS = [
     'corsheaders',
     "rest_framework.authtoken",
 
-    #Local Apps
     'api',
+    'accounts'
 ]
 
 
@@ -79,9 +73,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'manga_api.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
