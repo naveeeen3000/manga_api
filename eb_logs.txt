@@ -1,0 +1,339 @@
+Retrieving logs...
+============= i-05b74e7b8a68d180a ==============
+----------------------------------------
+/var/log/web.stdout.log
+----------------------------------------
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+Jul  9 03:21:00 ip-172-31-17-178 web: self.wsgi = self.app.wsgi()
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+Jul  9 03:21:00 ip-172-31-17-178 web: self.callable = self.load()
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+Jul  9 03:21:00 ip-172-31-17-178 web: return self.load_wsgiapp()
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+Jul  9 03:21:00 ip-172-31-17-178 web: return util.import_app(self.app_uri)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/gunicorn/util.py", line 359, in import_app
+Jul  9 03:21:00 ip-172-31-17-178 web: mod = importlib.import_module(module)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/usr/lib64/python3.7/importlib/__init__.py", line 127, in import_module
+Jul  9 03:21:00 ip-172-31-17-178 web: return _bootstrap._gcd_import(name[level:], package, level)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/current/manga_api/wsgi.py", line 16, in <module>
+Jul  9 03:21:00 ip-172-31-17-178 web: application = get_wsgi_application()
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+Jul  9 03:21:00 ip-172-31-17-178 web: django.setup(set_prefix=False)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/django/__init__.py", line 19, in setup
+Jul  9 03:21:00 ip-172-31-17-178 web: configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/django/conf/__init__.py", line 76, in __getattr__
+Jul  9 03:21:00 ip-172-31-17-178 web: self._setup(name)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/django/conf/__init__.py", line 63, in _setup
+Jul  9 03:21:00 ip-172-31-17-178 web: self._wrapped = Settings(settings_module)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/django/conf/__init__.py", line 142, in __init__
+Jul  9 03:21:00 ip-172-31-17-178 web: mod = importlib.import_module(self.SETTINGS_MODULE)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/usr/lib64/python3.7/importlib/__init__.py", line 127, in import_module
+Jul  9 03:21:00 ip-172-31-17-178 web: return _bootstrap._gcd_import(name[level:], package, level)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/current/manga_api/settings.py", line 124, in <module>
+Jul  9 03:21:00 ip-172-31-17-178 web: STATIC_ROOT= os.path.join(BASE_DIR+'static/')
+Jul  9 03:21:00 ip-172-31-17-178 web: TypeError: unsupported operand type(s) for +: 'PosixPath' and 'str'
+Jul  9 03:21:00 ip-172-31-17-178 web: [2022-07-09 03:21:00 +0000] [8307] [INFO] Worker exiting (pid: 8307)
+Jul  9 03:21:00 ip-172-31-17-178 web: [2022-07-09 03:21:00 +0000] [8299] [INFO] Shutting down: Master
+Jul  9 03:21:00 ip-172-31-17-178 web: [2022-07-09 03:21:00 +0000] [8299] [INFO] Reason: Worker failed to boot.
+Jul  9 03:21:00 ip-172-31-17-178 web: [2022-07-09 03:21:00 +0000] [8315] [INFO] Starting gunicorn 20.1.0
+Jul  9 03:21:00 ip-172-31-17-178 web: [2022-07-09 03:21:00 +0000] [8315] [INFO] Listening at: http://127.0.0.1:8000 (8315)
+Jul  9 03:21:00 ip-172-31-17-178 web: [2022-07-09 03:21:00 +0000] [8315] [INFO] Using worker: gthread
+Jul  9 03:21:00 ip-172-31-17-178 web: [2022-07-09 03:21:00 +0000] [8322] [INFO] Booting worker with pid: 8322
+Jul  9 03:21:00 ip-172-31-17-178 web: [2022-07-09 03:21:00 +0000] [8322] [ERROR] Exception in worker process
+Jul  9 03:21:00 ip-172-31-17-178 web: Traceback (most recent call last):
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+Jul  9 03:21:00 ip-172-31-17-178 web: worker.init_process()
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/gunicorn/workers/gthread.py", line 92, in init_process
+Jul  9 03:21:00 ip-172-31-17-178 web: super().init_process()
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/gunicorn/workers/base.py", line 134, in init_process
+Jul  9 03:21:00 ip-172-31-17-178 web: self.load_wsgi()
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+Jul  9 03:21:00 ip-172-31-17-178 web: self.wsgi = self.app.wsgi()
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+Jul  9 03:21:00 ip-172-31-17-178 web: self.callable = self.load()
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+Jul  9 03:21:00 ip-172-31-17-178 web: return self.load_wsgiapp()
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+Jul  9 03:21:00 ip-172-31-17-178 web: return util.import_app(self.app_uri)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/gunicorn/util.py", line 359, in import_app
+Jul  9 03:21:00 ip-172-31-17-178 web: mod = importlib.import_module(module)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/usr/lib64/python3.7/importlib/__init__.py", line 127, in import_module
+Jul  9 03:21:00 ip-172-31-17-178 web: return _bootstrap._gcd_import(name[level:], package, level)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/current/manga_api/wsgi.py", line 16, in <module>
+Jul  9 03:21:00 ip-172-31-17-178 web: application = get_wsgi_application()
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+Jul  9 03:21:00 ip-172-31-17-178 web: django.setup(set_prefix=False)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/django/__init__.py", line 19, in setup
+Jul  9 03:21:00 ip-172-31-17-178 web: configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/django/conf/__init__.py", line 76, in __getattr__
+Jul  9 03:21:00 ip-172-31-17-178 web: self._setup(name)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/django/conf/__init__.py", line 63, in _setup
+Jul  9 03:21:00 ip-172-31-17-178 web: self._wrapped = Settings(settings_module)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/venv/staging-LQM1lest/lib/python3.7/site-packages/django/conf/__init__.py", line 142, in __init__
+Jul  9 03:21:00 ip-172-31-17-178 web: mod = importlib.import_module(self.SETTINGS_MODULE)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/usr/lib64/python3.7/importlib/__init__.py", line 127, in import_module
+Jul  9 03:21:00 ip-172-31-17-178 web: return _bootstrap._gcd_import(name[level:], package, level)
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+Jul  9 03:21:00 ip-172-31-17-178 web: File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+Jul  9 03:21:00 ip-172-31-17-178 web: File "/var/app/current/manga_api/settings.py", line 124, in <module>
+Jul  9 03:21:00 ip-172-31-17-178 web: STATIC_ROOT= os.path.join(BASE_DIR+'static/')
+Jul  9 03:21:00 ip-172-31-17-178 web: TypeError: unsupported operand type(s) for +: 'PosixPath' and 'str'
+Jul  9 03:21:00 ip-172-31-17-178 web: [2022-07-09 03:21:00 +0000] [8322] [INFO] Worker exiting (pid: 8322)
+Jul  9 03:21:01 ip-172-31-17-178 web: [2022-07-09 03:21:01 +0000] [8315] [INFO] Shutting down: Master
+Jul  9 03:21:01 ip-172-31-17-178 web: [2022-07-09 03:21:01 +0000] [8315] [INFO] Reason: Worker failed to boot.
+
+
+----------------------------------------
+/var/log/eb-engine.log
+----------------------------------------
+2022/07/09 03:20:50.651216 [INFO] Executing platform hooks in .platform/hooks/predeploy/
+2022/07/09 03:20:50.651233 [INFO] The dir .platform/hooks/predeploy/ does not exist
+2022/07/09 03:20:50.651237 [INFO] Finished running scripts in /var/app/staging/.platform/hooks/predeploy
+2022/07/09 03:20:50.651243 [INFO] Executing instruction: stop X-Ray
+2022/07/09 03:20:50.651247 [INFO] stop X-Ray ...
+2022/07/09 03:20:50.651260 [INFO] Running command /bin/sh -c systemctl show -p PartOf xray.service
+2022/07/09 03:20:50.658098 [WARN] stopProcess Warning: process xray is not registered 
+2022/07/09 03:20:50.658116 [INFO] Running command /bin/sh -c systemctl stop xray.service
+2022/07/09 03:20:50.666779 [INFO] Executing instruction: stop proxy
+2022/07/09 03:20:50.666801 [INFO] Running command /bin/sh -c systemctl show -p PartOf httpd.service
+2022/07/09 03:20:50.672983 [WARN] deregisterProcess Warning: process httpd is not registered, skipping...
+
+2022/07/09 03:20:50.673023 [INFO] Running command /bin/sh -c systemctl show -p PartOf nginx.service
+2022/07/09 03:20:50.677953 [INFO] Running command /bin/sh -c systemctl is-active nginx.service
+2022/07/09 03:20:50.681623 [INFO] Running command /bin/sh -c systemctl show -p PartOf nginx.service
+2022/07/09 03:20:50.685905 [INFO] Running command /bin/sh -c systemctl stop nginx.service
+2022/07/09 03:20:55.838916 [INFO] Running command /bin/sh -c systemctl disable nginx.service
+2022/07/09 03:20:55.928432 [INFO] Running command /bin/sh -c systemctl daemon-reload
+2022/07/09 03:20:56.037578 [INFO] Running command /bin/sh -c systemctl reset-failed
+2022/07/09 03:20:56.043809 [INFO] Executing instruction: FlipApplication
+2022/07/09 03:20:56.043825 [INFO] Fetching environment variables...
+2022/07/09 03:20:56.043974 [INFO] Purge old process...
+2022/07/09 03:20:56.043995 [INFO] Running command /bin/sh -c systemctl stop eb-app.target
+2022/07/09 03:20:56.050165 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf eb-app.target | cut -d= -f2
+2022/07/09 03:20:56.057079 [INFO] web.service
+
+2022/07/09 03:20:56.057102 [INFO] Running command /bin/sh -c systemctl show -p PartOf web.service
+2022/07/09 03:20:56.062801 [INFO] Running command /bin/sh -c systemctl is-active web.service
+2022/07/09 03:20:56.067446 [INFO] Running command /bin/sh -c systemctl disable web.service
+2022/07/09 03:20:56.176490 [INFO] Removed symlink /etc/systemd/system/multi-user.target.wants/web.service.
+
+2022/07/09 03:20:56.176602 [INFO] Running command /bin/sh -c systemctl daemon-reload
+2022/07/09 03:20:56.278212 [INFO] Running command /bin/sh -c systemctl reset-failed
+2022/07/09 03:20:56.284191 [INFO] Removing /var/app/current/ if it exists
+2022/07/09 03:20:56.291984 [INFO] Renaming /var/app/staging/ to /var/app/current/
+2022/07/09 03:20:56.292012 [INFO] Register application processes...
+2022/07/09 03:20:56.292019 [INFO] Registering the proc: web
+
+2022/07/09 03:20:56.292089 [INFO] Running command /bin/sh -c systemctl show -p PartOf web.service
+2022/07/09 03:20:56.302791 [INFO] Running command /bin/sh -c systemctl daemon-reload
+2022/07/09 03:20:56.400032 [INFO] Running command /bin/sh -c systemctl reset-failed
+2022/07/09 03:20:56.406171 [INFO] Running command /bin/sh -c systemctl is-enabled eb-app.target
+2022/07/09 03:20:56.411519 [INFO] Running command /bin/sh -c systemctl enable eb-app.target
+2022/07/09 03:20:56.509530 [INFO] Running command /bin/sh -c systemctl start eb-app.target
+2022/07/09 03:20:56.516954 [INFO] Running command /bin/sh -c systemctl enable web.service
+2022/07/09 03:20:56.624354 [INFO] Created symlink from /etc/systemd/system/multi-user.target.wants/web.service to /etc/systemd/system/web.service.
+
+2022/07/09 03:20:56.624399 [INFO] Running command /bin/sh -c systemctl show -p PartOf web.service
+2022/07/09 03:20:56.632216 [INFO] Running command /bin/sh -c systemctl is-active web.service
+2022/07/09 03:20:56.637875 [INFO] Running command /bin/sh -c systemctl start web.service
+2022/07/09 03:20:56.664926 [INFO] Executing instruction: start X-Ray
+2022/07/09 03:20:56.664944 [INFO] X-Ray is not enabled.
+2022/07/09 03:20:56.664949 [INFO] Executing instruction: start proxy with new configuration
+2022/07/09 03:20:56.664971 [INFO] Running command /bin/sh -c /usr/sbin/nginx -t -c /var/proxy/staging/nginx/nginx.conf
+2022/07/09 03:20:56.690363 [INFO] nginx: the configuration file /var/proxy/staging/nginx/nginx.conf syntax is ok
+nginx: configuration file /var/proxy/staging/nginx/nginx.conf test is successful
+
+2022/07/09 03:20:56.690641 [INFO] Running command /bin/sh -c cp -rp /var/proxy/staging/nginx/* /etc/nginx
+2022/07/09 03:20:56.699229 [INFO] Running command /bin/sh -c systemctl show -p PartOf nginx.service
+2022/07/09 03:20:56.714046 [INFO] Running command /bin/sh -c systemctl daemon-reload
+2022/07/09 03:20:56.849325 [INFO] Running command /bin/sh -c systemctl reset-failed
+2022/07/09 03:20:56.857075 [INFO] Running command /bin/sh -c systemctl show -p PartOf nginx.service
+2022/07/09 03:20:56.870160 [INFO] Running command /bin/sh -c systemctl is-active nginx.service
+2022/07/09 03:20:56.880263 [INFO] Running command /bin/sh -c systemctl start nginx.service
+2022/07/09 03:20:56.962270 [INFO] Executing instruction: configureSqsd
+2022/07/09 03:20:56.962285 [INFO] This is a web server environment instance, skip configure sqsd daemon ...
+2022/07/09 03:20:56.962289 [INFO] Executing instruction: startSqsd
+2022/07/09 03:20:56.962293 [INFO] This is a web server environment instance, skip start sqsd daemon ...
+2022/07/09 03:20:56.962298 [INFO] Executing instruction: Track pids in healthd
+2022/07/09 03:20:56.962302 [INFO] This is an enhanced health env...
+2022/07/09 03:20:56.962316 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf aws-eb.target | cut -d= -f2
+2022/07/09 03:20:56.973954 [INFO] cfn-hup.service healthd.service nginx.service
+
+2022/07/09 03:20:56.973981 [INFO] Running command /bin/sh -c systemctl show -p ConsistsOf eb-app.target | cut -d= -f2
+2022/07/09 03:20:56.988931 [INFO] web.service
+
+2022/07/09 03:20:56.989099 [INFO] Executing instruction: RunAppDeployPostDeployHooks
+2022/07/09 03:20:56.989113 [INFO] Executing platform hooks in .platform/hooks/postdeploy/
+2022/07/09 03:20:56.989129 [INFO] The dir .platform/hooks/postdeploy/ does not exist
+2022/07/09 03:20:56.989133 [INFO] Finished running scripts in /var/app/current/.platform/hooks/postdeploy
+2022/07/09 03:20:56.989140 [INFO] Executing cleanup logic
+2022/07/09 03:20:56.989245 [INFO] CommandService Response: {"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"Engine execution has succeeded.","returncode":0,"events":[{"msg":"Instance deployment successfully generated a 'Procfile'.","timestamp":1657336848618,"severity":"INFO"},{"msg":"Instance deployment completed successfully.","timestamp":1657336856989,"severity":"INFO"}]}]}
+
+2022/07/09 03:20:56.990026 [INFO] Platform Engine finished execution on command: app-deploy
+
+2022/07/09 03:23:53.174303 [INFO] Starting...
+2022/07/09 03:23:53.174348 [INFO] Starting EBPlatform-PlatformEngine
+2022/07/09 03:23:53.174369 [INFO] reading event message file
+2022/07/09 03:23:53.174527 [INFO] Engine received EB command cfn-hup-exec
+
+2022/07/09 03:23:53.259400 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-west-2:149271404015:stack/awseb-e-hmkthuextz-stack/c5ae7240-fee6-11ec-a604-068974e76749 -r AWSEBAutoScalingGroup --region us-west-2
+2022/07/09 03:23:53.578319 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-west-2:149271404015:stack/awseb-e-hmkthuextz-stack/c5ae7240-fee6-11ec-a604-068974e76749 -r AWSEBBeanstalkMetadata --region us-west-2
+2022/07/09 03:23:53.880329 [INFO] checking whether command tail-log is applicable to this instance...
+2022/07/09 03:23:53.880342 [INFO] this command is applicable to the instance, thus instance should execute command
+2022/07/09 03:23:53.880347 [INFO] Engine command: (tail-log)
+
+2022/07/09 03:23:53.880394 [INFO] Executing instruction: GetTailLogs
+2022/07/09 03:23:53.880404 [INFO] Tail Logs...
+2022/07/09 03:23:53.880653 [INFO] Running command /bin/sh -c tail -n 100 /var/log/web.stdout.log
+2022/07/09 03:23:53.882532 [INFO] Running command /bin/sh -c tail -n 100 /var/log/eb-engine.log
+
+
+----------------------------------------
+/var/log/eb-hooks.log
+----------------------------------------
+
+
+----------------------------------------
+/var/log/nginx/access.log
+----------------------------------------
+172.31.5.49 - - [09/Jul/2022:02:57:26 +0000] "GET /admin/ HTTP/1.1" 200 5268 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:26 +0000] "GET /admin/accounts/mangauser/static/admin/css/responsive.css HTTP/1.1" 301 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:26 +0000] "GET /admin/accounts/mangauser/static/admin/css/responsive.css/ HTTP/1.1" 302 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:27 +0000] "GET /admin/login/?next=/admin/accounts/mangauser/static/admin/css/responsive.css/ HTTP/1.1" 200 2015 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:32 +0000] "GET /admin/accounts/mangauser/10/change/ HTTP/1.1" 200 7348 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/base.css HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/forms.css HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/calendar.js HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/jquery.init.js HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/jsi18n/ HTTP/1.1" 200 3371 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/responsive.css HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/core.js HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/urlify.js HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/actions.js HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/forms.css/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/prepopulate_init.js HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/change_form.js HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/prepopulate.js HTTP/1.1" 301 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:33 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/base.css/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:34 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/responsive.css/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:34 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/jquery.init.js/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:34 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/vendor/jquery/jquery.js/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:34 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/calendar.js/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:34 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/core.js/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:34 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/forms.css/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:34 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/urlify.js/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:34 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/prepopulate.js/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:34 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/admin/RelatedObjectLookups.js/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:34 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/base.css/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:34 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/admin/DateTimeShortcuts.js/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:34 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/actions.js/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/responsive.css/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/vendor/xregexp/xregexp.js/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/change_form.js/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/jquery.init.js/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/prepopulate_init.js/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/ HTTP/1.1" 200 5273 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/core.js/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/vendor/jquery/jquery.js/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/forms.css HTTP/1.1" 301 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/calendar.js/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/prepopulate.js/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/urlify.js/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/ HTTP/1.1" 200 5272 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/actions.js/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/forms.css/ HTTP/1.1" 302 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/admin/RelatedObjectLookups.js/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/base.css HTTP/1.1" 301 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/vendor/xregexp/xregexp.js/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/change_form.js/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/admin/DateTimeShortcuts.js/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/ HTTP/1.1" 200 5079 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/login/?next=/admin/accounts/mangauser/10/change/static/admin/css/forms.css/ HTTP/1.1" 200 2025 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/base.css/ HTTP/1.1" 302 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/js/prepopulate_init.js/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:35 +0000] "GET /admin/ HTTP/1.1" 200 5079 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:36 +0000] "GET /admin/login/?next=/admin/accounts/mangauser/10/change/static/admin/css/base.css/ HTTP/1.1" 200 2023 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:36 +0000] "GET /admin/ HTTP/1.1" 200 5418 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:36 +0000] "GET /admin/ HTTP/1.1" 200 5079 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:36 +0000] "GET /admin/ HTTP/1.1" 200 5079 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:37 +0000] "GET /admin/ HTTP/1.1" 200 5079 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:37 +0000] "GET /admin/ HTTP/1.1" 200 5079 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:37 +0000] "GET /admin/ HTTP/1.1" 200 5288 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:38 +0000] "GET /admin/ HTTP/1.1" 200 5277 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:38 +0000] "GET /admin/ HTTP/1.1" 200 5277 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:38 +0000] "GET /admin/ HTTP/1.1" 200 5277 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:39 +0000] "GET /admin/ HTTP/1.1" 200 5277 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:39 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/responsive.css/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:39 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/responsive.css/change/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:39 +0000] "GET /admin/ HTTP/1.1" 200 5282 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:39 +0000] "GET /admin/ HTTP/1.1" 200 5278 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:40 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/responsive.css HTTP/1.1" 301 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:40 +0000] "GET /admin/accounts/mangauser/10/change/static/admin/css/responsive.css/ HTTP/1.1" 302 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:02:57:40 +0000] "GET /admin/login/?next=/admin/accounts/mangauser/10/change/static/admin/css/responsive.css/ HTTP/1.1" 200 2035 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:06:00 +0000] "GET /admin/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:06:00 +0000] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1913 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/accounts/mangauser/10/change/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:06:01 +0000] "GET /admin/login/static/admin/css/base.css HTTP/1.1" 404 4633 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:06:01 +0000] "GET /admin/login/static/admin/css/login.css HTTP/1.1" 404 4636 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:06:01 +0000] "GET /admin/login/static/admin/css/responsive.css HTTP/1.1" 404 4651 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:06:02 +0000] "GET /admin/login/static/admin/css/base.css HTTP/1.1" 404 4633 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:06:02 +0000] "GET /admin/login/static/admin/css/login.css HTTP/1.1" 404 4636 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:06:02 +0000] "GET /admin/login/static/admin/css/responsive.css HTTP/1.1" 404 4651 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:06:07 +0000] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:06:08 +0000] "GET /admin/ HTTP/1.1" 200 4481 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:06:08 +0000] "GET /admin/static/admin/css/base.css HTTP/1.1" 404 4615 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:06:08 +0000] "GET /admin/static/admin/css/dashboard.css HTTP/1.1" 404 4630 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:06:08 +0000] "GET /admin/static/admin/css/responsive.css HTTP/1.1" 404 4633 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:11:49 +0000] "GET /admin/ HTTP/1.1" 502 559 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:11:51 +0000] "GET /admin/ HTTP/1.1" 502 559 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:12:37 +0000] "GET /admin/ HTTP/1.1" 502 559 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:13:34 +0000] "GET /admin/ HTTP/1.1" 502 559 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:13:35 +0000] "GET /admin/ HTTP/1.1" 502 559 "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.29.249 - - [09/Jul/2022:03:21:29 +0000] "GET / HTTP/1.1" 502 157 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7" "103.47.217.47"
+172.31.5.49 - - [09/Jul/2022:03:23:14 +0000] "POST /accounts/user/login HTTP/1.1" 502 559 "http://localhost:8080/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:23:19 +0000] "POST /accounts/user/login HTTP/1.1" 502 559 "http://localhost:8080/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+172.31.5.49 - - [09/Jul/2022:03:23:29 +0000] "GET /admin/ HTTP/1.1" 502 559 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36" "103.252.25.240"
+
+
+----------------------------------------
+/var/log/nginx/error.log
+----------------------------------------
+2022/07/08 17:58:52 [error] 3591#3591: *49 connect() failed (111: Connection refused) while connecting to upstream, client: 172.31.5.49, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com"
+2022/07/08 17:58:52 [error] 3591#3591: *49 connect() failed (111: Connection refused) while connecting to upstream, client: 172.31.5.49, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:8000/favicon.ico", host: "manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com", referrer: "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/"
+2022/07/08 18:52:01 [warn] 32166#32166: *706 an upstream response is buffered to a temporary file /var/lib/nginx/tmp/proxy/1/00/0000000001 while reading upstream, client: 172.31.5.49, server: , request: "GET /api/v1/manga/read/?manga_title=One%20Piece HTTP/1.1", upstream: "http://127.0.0.1:8000/api/v1/manga/read/?manga_title=One%20Piece", host: "manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com", referrer: "http://localhost:8080/"
+2022/07/09 03:11:49 [error] 7151#7151: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 172.31.5.49, server: , request: "GET /admin/ HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/", host: "manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com", referrer: "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/"
+2022/07/09 03:11:51 [error] 7151#7151: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 172.31.5.49, server: , request: "GET /admin/ HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/", host: "manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com", referrer: "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/"
+2022/07/09 03:12:37 [error] 7151#7151: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 172.31.5.49, server: , request: "GET /admin/ HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/", host: "manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com", referrer: "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/"
+2022/07/09 03:13:34 [error] 7670#7670: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.31.5.49, server: , request: "GET /admin/ HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/", host: "manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com", referrer: "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/"
+2022/07/09 03:13:35 [error] 7670#7670: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.31.5.49, server: , request: "GET /admin/ HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/", host: "manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com", referrer: "http://manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/admin/login/?next=/admin/"
+2022/07/09 03:21:29 [error] 8229#8229: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.31.29.249, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:8000/", host: "52.24.205.164"
+2022/07/09 03:23:14 [error] 8229#8229: *33 connect() failed (111: Connection refused) while connecting to upstream, client: 172.31.5.49, server: , request: "POST /accounts/user/login HTTP/1.1", upstream: "http://127.0.0.1:8000/accounts/user/login", host: "manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com", referrer: "http://localhost:8080/"
+2022/07/09 03:23:19 [error] 8229#8229: *33 connect() failed (111: Connection refused) while connecting to upstream, client: 172.31.5.49, server: , request: "POST /accounts/user/login HTTP/1.1", upstream: "http://127.0.0.1:8000/accounts/user/login", host: "manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com", referrer: "http://localhost:8080/"
+2022/07/09 03:23:29 [error] 8229#8229: *33 connect() failed (111: Connection refused) while connecting to upstream, client: 172.31.5.49, server: , request: "GET /admin/ HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/", host: "manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com"
+
+
