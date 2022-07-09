@@ -5,17 +5,13 @@ import os
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 SECRET_KEY = config("DJANGO_SECRET_KEY")
-
 DEBUG = config("DEBUG")
-
-ALLOWED_HOSTS = ["65.2.128.88",'*']
+ALLOWED_HOSTS = ['*']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -33,7 +29,6 @@ INSTALLED_APPS = [
     'api',
     'accounts'
 ]
-
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -55,7 +50,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:8080',
     'http://localhost:3000',
@@ -63,6 +57,12 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 ROOT_URLCONF = 'manga_api.urls'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    '/var/www/static/',
+]
+
 
 TEMPLATES = [
     {
@@ -91,9 +91,6 @@ DATABASES = {
 }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -110,19 +107,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
-
 STATIC_URL = 'static/'
-STATIC_ROOT= "static/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
