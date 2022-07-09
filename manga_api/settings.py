@@ -1,7 +1,7 @@
 from pathlib import Path
 import rest_framework
 from decouple import config
-
+import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config("DJANGO_SECRET_KEY")
