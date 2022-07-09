@@ -113,5 +113,5 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
-STATIC_ROOT = "/var/www/manga-prod-env.eba-pmyidakg.us-west-2.elasticbeanstalk.com/static/"
+STATIC_ROOT = "static"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
