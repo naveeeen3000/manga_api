@@ -2,3 +2,7 @@
 __pycache__
 data.json
 test.py
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
