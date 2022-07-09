@@ -2,11 +2,26 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework import status
+<<<<<<< HEAD
 from rest_framework.decorators import api_view,authentication_classes,permission_classes
 from rest_framework.authentication import SessionAuthentication,BasicAuthentication,TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from .serializers import LoginSerializer
 from utils import get_connection,validate_login_creds
+=======
+
+class SearchAPIView(APIView):
+    """
+<<<<<<< HEAD
+    Search Api
+    Usage:
+        <https://127.0.0.1:8080/api/v1/search/?q={keyword}>
+
+=======
+    <font color="red">/search</font>
+>>>>>>> e0ad221759064396c5ea9929ff5440b3022f9827
+    """
+>>>>>>> master
 
 
 

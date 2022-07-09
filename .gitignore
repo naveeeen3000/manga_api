@@ -1,4 +1,5 @@
 *.pyc
+<<<<<<< HEAD
 __pycache__
 data.json
 test.py
@@ -9,3 +10,10 @@ test.py
 
 *.pem
 *.crt
+=======
+<<<<<<< HEAD
+*.sqlite3
+=======
+__pycache__
+>>>>>>> e0ad221759064396c5ea9929ff5440b3022f9827
+>>>>>>> master
