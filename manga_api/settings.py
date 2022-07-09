@@ -12,6 +12,11 @@ DEBUG = config("DEBUG")
 
 ALLOWED_HOSTS = ["65.2.128.88",'*']
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -118,6 +123,6 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
-STATIC_ROOT= "static"
+STATIC_ROOT= "static/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
