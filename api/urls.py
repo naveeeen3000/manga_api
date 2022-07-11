@@ -6,7 +6,7 @@ appname="api"
 
 
 urlpatterns = [
-    path('',views.index_view,name='manga_api_index'),
+    path('',views.manga_api_view,name='manga_api_index'),
     path("search/",views.searchView,name='search'),
     path("user/",views.AccountsAPIView.as_view(),name='accounts'),
     path("manga/details/",views.MangaAPIView.as_view(),name='manga_details'),

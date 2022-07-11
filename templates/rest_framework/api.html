@@ -1,12 +1,14 @@
 {% extends 'rest_framework/base.html' %}
 
-{% block bootstrap_theme %}
-    <link rel="stylesheet" href="/static/rest_framework/css/bootstrap.min.css" type="text/css">
-{% endblock %}
+{% comment %} {% block bootstrap_theme %}
+    <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css" type="text/css">
+{% endblock %} {% endcomment %}
 
-{% block bootstrap_navbar_variant %}{% endblock %}
 
+{% block title %}
+<title >Manga Api</title>
+{% endblock title %}
 
 {% block branding %}
-    <h3 style="margin: 0 0 20px;">Manga World</h3>
+    <h3 style="10px 10px 0px 10px">Manga World</h3>
 {% endblock %}

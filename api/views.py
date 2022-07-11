@@ -14,7 +14,7 @@ from utils import get_connection,validate_login_creds
 @api_view(['GET'])
 @authentication_classes([TokenAuthentication,BasicAuthentication,SessionAuthentication])
 @permission_classes([IsAuthenticated])
-def index_view(request):
+def manga_api_view(request):
     base_url =  "{0}://{1}{2}".format(request.scheme, request.get_host(), request.path)
     result={
         "search":base_url+'search/?q=naruto',

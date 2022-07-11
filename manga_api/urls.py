@@ -9,7 +9,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.IndexView.as_view(),name='index'),
+    path('',views.MangaWorldAPI.as_view(),name='index'),
     path('api/v1/',include("api.urls")),
     path('api-auth/', include('rest_framework.urls')),
     path('accounts/',include('accounts.urls'))

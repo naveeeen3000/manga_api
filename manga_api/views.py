@@ -8,7 +8,7 @@ from rest_framework.decorators import api_view
 
 
 
-class IndexView(APIView):
+class MangaWorldAPI (APIView):
     """
     Requires Token Authentication
     Only Admin users can see all the options

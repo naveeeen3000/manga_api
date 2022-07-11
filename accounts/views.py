@@ -18,7 +18,7 @@ import bcrypt
 @api_view(['GET'])
 @authentication_classes([SessionAuthentication,TokenAuthentication,BasicAuthentication])
 @permission_classes([IsAuthenticated])
-def index_view(request):
+def accounts_api(request):
     base_url =  "{0}://{1}{2}".format(request.scheme, request.get_host(), request.path)
     result={
         "create_user":base_url+'user/create',
