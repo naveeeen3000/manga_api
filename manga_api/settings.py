@@ -1,11 +1,12 @@
 from pathlib import Path
 import rest_framework
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-q*k0t3i+1)ejob0j0(hja1)r508c=nzr+$rjlwdi6fg^zp4*i-'
+SECRET_KEY = config("DJANGO_SECRET_KEY")
 
-DEBUG = True
+DEBUG = config("DEBUG")
 
 ALLOWED_HOSTS = ["65.2.128.88",'*']
 
