@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.authtoken.models import Token
@@ -13,6 +12,9 @@ from .serializers import MangaUserSerializer
 from .models import MangaUser
 import datetime
 import bcrypt
+import boto3
+
+
 
 
 @api_view(['GET'])
@@ -23,7 +25,8 @@ def accounts_api(request):
     result={
         "create_user":base_url+'user/create',
         'login':base_url+'user/login',
-        "user_details":base_url+'user/details'
+        "user_details":base_url+'user/details',
+        "verify_user":base_url + 'user/verify'
     }
     return Response(result,status=status.HTTP_200_OK)
 
@@ -107,3 +110,22 @@ def getUserDetailsAPIView(request):
     
     return Response({'user':user_data},status=status.HTTP_200_OK)
 
+
+@api_view(["post"])
+@authentication_classes([BasicAuthentication,TokenAuthentication])
+def create_email_template(request):
+    pass
+
+@api_view(['post'])
+@authentication_classes([BasicAuthentication,TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def verifyUser(request):
+    payload=request.data
+    email=payload.get('email',False)
+    if not email:
+        return Response({"data":"email not provided "},status=status.HTTP_400_BAD_REQUEST)
+    ses=boto3.client('ses')
+    response=ses.verify_email_identity(
+        EmailAddress=email
+    )
+    return Response({"data":response},status=status.HTTP_200_OK)
