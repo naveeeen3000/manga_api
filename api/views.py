@@ -17,7 +17,7 @@ from utils import get_connection,validate_login_creds
 def index_view(request):
     base_url =  "{0}://{1}{2}".format(request.scheme, request.get_host(), request.path)
     result={
-        "search":base_url+'search/?q=',
+        "search":base_url+'search/?q=naruto',
         "manga_details":base_url+'manga/details/',
         'popular_manga':base_url+'manga/popular/',
         "by_genre":base_url+'manga/?genre=action',
