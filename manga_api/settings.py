@@ -8,7 +8,9 @@ SECRET_KEY = config("DJANGO_SECRET_KEY")
 
 DEBUG = config("DEBUG")
 
-ALLOWED_HOSTS = ["65.2.128.88",'*']
+TEMPLATES_DIRS= BASE_DIR / 'templates'
+
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -59,7 +61,7 @@ ROOT_URLCONF = 'manga_api.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIRS,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
