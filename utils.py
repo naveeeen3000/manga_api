@@ -15,8 +15,8 @@ def get_connection(collection_name):
         #     print("Mongo db not connected")
         #     return False
         return {'status':True,'data':collection}
-    except:
-        return {"status":False,'data':"db connnection failure"}
+    except Exception as e:
+        return {"status":False,'data':e.__str__()}
 
 
 def update_manga(collection_name):
