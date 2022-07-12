@@ -1,14 +1,16 @@
 {% extends 'rest_framework/base.html' %}
+{% load static %}
 
-{% comment %} {% block bootstrap_theme %}
-    <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css" type="text/css">
-{% endblock %} {% endcomment %}
+{% block style %}
+{{ block.super }}
+    <link rel="shortcut icon" type="image/png" href="/static/img/favicon.ico"/>
+{% endblock %}
 
 
 {% block title %}
-<title >Manga Api</title>
+Manga Api
 {% endblock title %}
 
 {% block branding %}
-    <h3 style="10px 10px 0px 10px">Manga World</h3>
+    <a href='/'><h3 style="10px 10px 0px 10px">Manga World</h3></a>
 {% endblock %}

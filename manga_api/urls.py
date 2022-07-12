@@ -1,19 +1,19 @@
 
 from django.contrib import admin
 from django.urls import path,include
-from django.contrib.auth.models import User
+from django.views.generic.base import RedirectView
+from django.contrib.staticfiles.storage import staticfiles_storage
 from rest_framework import routers, serializers, viewsets
-from django.db import models
 from . import views
-# from rest_framework.authtoken import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.MangaWorldAPI.as_view(),name='index'),
     path('api/v1/',include("api.urls")),
     path('api-auth/', include('rest_framework.urls')),
-    path('accounts/',include('accounts.urls'))
-
+    path('accounts/',include('accounts.urls')),
+    path('favicon',RedirectView.as_view(url=staticfiles_storage.url('img/favicon.ico')))
 ]
 
 
