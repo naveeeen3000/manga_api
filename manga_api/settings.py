@@ -51,7 +51,8 @@ MIDDLEWARE = [
 
 
 CORS_ALLOWED_ORIGINS = [
-    '*'
+    'http://localhost:8081',
+    'http://localhost:8080',
 ]
 
 ROOT_URLCONF = 'manga_api.urls'
