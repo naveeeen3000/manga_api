@@ -51,9 +51,7 @@ MIDDLEWARE = [
 
 
 CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:8080',
-    'http://localhost:3000',
-    'http://localhost:8080'
+    '*'
 ]
 
 ROOT_URLCONF = 'manga_api.urls'
@@ -79,8 +77,12 @@ WSGI_APPLICATION = 'manga_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(BASE_DIR / 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': config('MYSQL_DB_NAME'),
+        'USER': config("MYSQL_DB_USER"),
+        'PASSWORD': config("MYSQL_DB_PASSWORD"),
+        'HOST': config("MYSQL_DB_HOST"),
+        'PORT': '3306'
     }
 }
 

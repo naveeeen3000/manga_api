@@ -1,6 +1,5 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework import permissions
 from rest_framework import status
 from rest_framework.decorators import api_view,authentication_classes,permission_classes
 from rest_framework.authentication import SessionAuthentication,BasicAuthentication,TokenAuthentication
@@ -22,7 +21,7 @@ def manga_api_view(request):
         'popular_manga':base_url+'manga/popular/',
         "by_genre":base_url+'manga/?genre=action',
         "by_tags":base_url+'manga/tags/?tag=comedy',
-        'read_manga':base_url+'manga/read?manga_title=Attack on Titan'
+        'read_manga':base_url+'manga/read?manga_id=83f4e399-ca79-56b3-9058-9462f702ffa2'
     }
     return Response(result,status=status.HTTP_200_OK)
 
@@ -208,35 +207,17 @@ def get_anime_by_tags(request):
 @authentication_classes([TokenAuthentication,BasicAuthentication,SessionAuthentication])
 @permission_classes([IsAuthenticated])
 def get_read_manga(request):
-    manga_title=request.query_params.get('manga_title',False)
-    if not manga_title:
-        return Response({'data':"no query provided"},status=status.HTTP_406_NOT_ACCEPTABLE)
+    try:
+        manga_id=request.query_params.get('manga_id',False)
+        if not manga_id:
+            return Response({'data':"no query provided"},status=status.HTTP_406_NOT_ACCEPTABLE)
 
-    collection=get_connection('manga')
-    if not collection['status']:
-        return Response({'data':collection['data']},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        collection=get_connection('manga')
+        if not collection['status']:
+            return Response({'data':collection['data']},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    coll=collection['data']
-    res=coll.aggregate([
-        {
-            '$search':{
-                'index':'search_index',
-                'text':{
-                    'query': manga_title,
-                    'path':'title',
-                }
-            }
-        },
-        {
-            '$project':{
-                '_id':0
-            }
-        },
-        {
-            '$limit':1
-        }
-    ])
-
-    res=list(res)
-    return Response({"data":res},status=status.HTTP_200_OK)
-
+        coll=collection['data']
+        manga=list(coll.find({'manga_id':manga_id},{'_id':0}))
+        return Response({"data":manga},status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({"error":{"message":e.__str__()}},status=status.HTTP_400_BAD_REQUEST)

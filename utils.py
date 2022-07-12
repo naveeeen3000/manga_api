@@ -54,6 +54,20 @@ def validate_login_creds(data):
 
 
 
-def generate_user_token():
 
-    return uuid4()
+def update_collection_with_uuid():
+    try:
+        coll=get_connection('manga')
+        coll=coll['data']
+        res=list(coll.find({},{'_id':0,'title':1}))
+        title=[ manga['title'] for manga in res ]
+        for tit in title:
+            print("updating {} /////////////".format(tit))
+            ack=coll.update_one({'title':tit},{"$set":{'manga_id': str(uuid.uuid5(uuid.NAMESPACE_DNS,tit))}})
+        
+        print("done.")
+    except Exception as e:
+        print(e.__str__())
+    
+
+# update_collection_with_uuid()

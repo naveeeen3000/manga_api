@@ -7,12 +7,12 @@ from rest_framework.decorators import authentication_classes,permission_classes,
 from rest_framework.views import APIView
 from django.db import IntegrityError
 from django.shortcuts import get_object_or_404
-from utils import get_connection,generate_user_token
 from .serializers import MangaUserSerializer
 from .models import MangaUser
 import datetime
 import bcrypt
 import boto3
+import uuid
 
 
 
@@ -61,7 +61,7 @@ class AccountsAPIView(APIView):
                                     password=hashed_password,
                                     created_at=datetime.datetime.now(),
                                     updated=datetime.datetime.now())
-            token=generate_user_token()
+            token=str(uuid.uuid5(uuid.NAMESPACE_DNS,body['name']))
             user.token = token
 
             user.save()
