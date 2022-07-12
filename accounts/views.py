@@ -124,8 +124,11 @@ def verifyUser(request):
     email=payload.get('email',False)
     if not email:
         return Response({"data":"email not provided "},status=status.HTTP_400_BAD_REQUEST)
-    ses=boto3.client('ses')
-    response=ses.verify_email_identity(
-        EmailAddress=email
-    )
-    return Response({"data":response},status=status.HTTP_200_OK)
+    try:
+        ses=boto3.client('ses')
+        response=ses.verify_email_identity(
+            EmailAddress=email
+        )
+        return Response({"data":response},status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({"error":{"message":e.__str__()}},status=status.HTTP_400_BAD_REQUEST)

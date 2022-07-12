@@ -1,5 +1,10 @@
 {% extends "rest_framework/login_base.html" %}
 
+{% block style %}
+{{ block.super }}
+    <link rel="shortcut icon" type="image/png" href="/static/img/favicon.ico"/>
+{% endblock %}
+
 {% block branding %}
     <h3 style="margin: 0 0 20px;">Manga World Admin Login</h3>
 {% endblock %}
