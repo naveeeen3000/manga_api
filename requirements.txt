@@ -47,3 +47,4 @@ texttable==1.6.4
 urllib3==1.26.10
 wcwidth==0.1.9
 websocket-client==0.59.0
+mysqlclient==2.1.1
