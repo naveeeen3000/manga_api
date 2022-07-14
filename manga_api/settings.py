@@ -75,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'manga_api.wsgi.application'
 
-import pymysql
 
 DATABASES = {
     'default': {
@@ -87,10 +86,6 @@ DATABASES = {
         'PORT': '3306'
     }
 }
-
-pymysql.version_info = (1, 4, 2, "final", 0)
-pymysql.install_as_MySQLdb()
-
 
 
 # Password validation
