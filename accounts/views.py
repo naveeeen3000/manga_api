@@ -125,7 +125,7 @@ def verifyUser(request):
     if not email:
         return Response({"data":"email not provided "},status=status.HTTP_400_BAD_REQUEST)
     try:
-        ses=boto3.client('ses',region_name='ap-south-1')
+        ses=boto3.client('ses' ,region_name='ap-south-1')
         response=ses.verify_email_identity(
             EmailAddress=email
         )
