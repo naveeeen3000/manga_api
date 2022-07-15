@@ -13,3 +13,6 @@ class AWSEmailTemplateSerializer(serializers.ModelSerializer):
         model=EmailTemplate
         exclude=[]
         
+
+class EmailSerializer(serializers.Serializer):
+    email=serializers.EmailField()
