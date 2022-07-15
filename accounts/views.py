@@ -1,3 +1,4 @@
+from yaml import serialize
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.authtoken.models import Token
@@ -5,10 +6,12 @@ from rest_framework.authentication import SessionAuthentication,TokenAuthenticat
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import authentication_classes,permission_classes,api_view
 from rest_framework.views import APIView
+from rest_framework.generics import GenericAPIView
+from rest_framework import mixins
 from django.db import IntegrityError
 from django.shortcuts import get_object_or_404
-from .serializers import MangaUserSerializer
-from .models import MangaUser
+from .serializers import MangaUserSerializer,AWSEmailTemplateSerializer
+from .models import MangaUser,EmailTemplate
 import datetime
 import bcrypt
 import boto3
@@ -26,7 +29,9 @@ def accounts_api(request):
         "create_user":base_url+'user/create',
         'login':base_url+'user/login',
         "user_details":base_url+'user/details',
-        "verify_user":base_url + 'user/verify'
+        "verify_user":base_url + 'user/verify',
+        # 'create_email_template':base_url+"email/template",
+        "get_verified_addresses":base_url+'verified/mails'
     }
     return Response(result,status=status.HTTP_200_OK)
 
@@ -111,13 +116,44 @@ def getUserDetailsAPIView(request):
     return Response({'user':user_data},status=status.HTTP_200_OK)
 
 
-@api_view(["post"])
-@authentication_classes([BasicAuthentication,TokenAuthentication])
-def create_email_template(request):
-    pass
+class CreateEmailTemaplateView(APIView):
+
+    serializer_class=AWSEmailTemplateSerializer
+    permission_classes=[IsAuthenticated]
+    authentication_classes=[BasicAuthentication,TokenAuthentication,SessionAuthentication]
+
+    def get(self,request,*args,**kwargs):
+        try:
+            ses=boto3.client('ses')
+            response=ses.list_templates()
+            return Response({'data':response},status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error':{'message':e.__str__()}},status=status.HTTP_400_BAD_REQUEST)
+    
+    def post(self,request,*args,**kwargs):
+        error_hint={}
+        try:
+            serializer_data=self.serializer_class(data=request.data)
+            ses=boto3.client('ses',region_name='ap-south-1')
+            if serializer_data.is_valid(raise_exception=True):
+                serializer_data.save()
+                data=serializer_data.data
+                error_hint=data
+                response=ses.create_custom_verification_email_template(
+                    TemplateName=data['template_name'],
+                    FromEmailAddress=data['from_address'],
+                    TemplateSubject=data['subject'],
+                    TemplateContent=data['body'],
+                    SuccessRedirectUrl=data['surl'],
+                    FailureRedirectUrl=data['furl']
+                )
+                return Response({'data':response},status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error':{"message":e.__str__(),"hint":error_hint}},status=status.HTTP_400_BAD_REQUEST)
+    
 
 @api_view(['post'])
-@authentication_classes([BasicAuthentication,TokenAuthentication])
+@authentication_classes([BasicAuthentication,TokenAuthentication,SessionAuthentication])
 @permission_classes([IsAuthenticated])
 def verifyUser(request):
     payload=request.data
@@ -126,9 +162,24 @@ def verifyUser(request):
         return Response({"data":"email not provided "},status=status.HTTP_400_BAD_REQUEST)
     try:
         ses=boto3.client('ses' ,region_name='ap-south-1')
-        response=ses.verify_email_identity(
+        response=ses.verify_email_address(
             EmailAddress=email
         )
-        return Response({"data":response},status=status.HTTP_200_OK)
+        if response['ResponseMetadata']['HTTPStatusCode']==200:
+            return Response({"data":"email sent to %s"%email},status=status.HTTP_200_OK)
+        return Response({"data":response},status=status.HTTP_400_BAD_REQUEST)
+
     except Exception as e:
         return Response({"error":{"message":e.__str__()}},status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['get'])
+@authentication_classes([SessionAuthentication,TokenAuthentication,BasicAuthentication])
+@permission_classes([IsAuthenticated])
+def get_verified_users(request):
+    try:
+        ses=boto3.client('ses',region_name='ap-south-1')
+        response=ses.list_verified_email_addresses()
+        return Response({"data":response['VerifiedEmailAddresses']},status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({"error":{"message":e}},status=status.HTTP_400_BAD_REQUEST)

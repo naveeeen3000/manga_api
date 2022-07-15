@@ -83,7 +83,10 @@ DATABASES = {
         'USER': config("MYSQL_DB_USER"),
         'PASSWORD': config("MYSQL_DB_PASSWORD"),
         'HOST': config("MYSQL_DB_HOST"),
-        'PORT': '3306'
+        'PORT': '3306',
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        }
     }
 }
 

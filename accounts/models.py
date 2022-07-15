@@ -18,3 +18,16 @@ class MangaUser(models.Model):
     def __str__(self):
         return self.name
     
+
+class EmailTemplate(models.Model):
+    template_name=models.CharField(max_length=200,unique=True)
+    from_address=models.EmailField()
+    subject=models.CharField(max_length=50)
+    body=models.TextField()
+    surl=models.URLField()
+    furl=models.URLField()
+
+
+    def __str__(self):
+        return self.template_name
+
