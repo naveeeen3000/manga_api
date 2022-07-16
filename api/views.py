@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view,authentication_classes,permission
 from rest_framework.authentication import SessionAuthentication,BasicAuthentication,TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from .serializers import LoginSerializer
-from utils import get_connection,validate_login_creds
+from utils import get_connection
 
 
 
