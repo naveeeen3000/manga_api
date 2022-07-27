@@ -17,7 +17,6 @@ from cryptography.fernet import Fernet
 from decouple import config
 import datetime
 import bcrypt
-import boto3
 import uuid
 
 
