@@ -53,6 +53,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8081',
     'http://localhost:8080',
+    'https://naveeeen3000.github.io'
 ]
 
 ROOT_URLCONF = 'manga_api.urls'
@@ -78,15 +79,8 @@ WSGI_APPLICATION = 'manga_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('MYSQL_DB_NAME'),
-        'USER': config("MYSQL_DB_USER"),
-        'PASSWORD': config("MYSQL_DB_PASSWORD"),
-        'HOST': config("MYSQL_DB_HOST"),
-        'PORT': '3306',
-        'OPTIONS': {
-            'sql_mode': 'traditional',
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3'
     }
 }
 
