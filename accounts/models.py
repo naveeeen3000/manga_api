@@ -3,18 +3,21 @@ from django.contrib.auth.models import User
 
 
 class MangaUser(models.Model):
-    name=models.CharField(max_length=255)
+    user_id=models.AutoField(unique=True,primary_key=True)
+    first_name=models.CharField(max_length=30)
+    last_name=models.CharField(max_length=30)
     email=models.EmailField(unique=True)
-    token=models.CharField(max_length=255, db_index=True,unique=True)
-    password=models.CharField(max_length=255)
+    country=models.CharField(max_length=20)
+    dod=models.DateField()
     created_at=models.DateTimeField()
     updated=models.DateTimeField()
     
     class Meta:
+        db_table='manga_user'
         constraints=[
             models.UniqueConstraint(fields=['email'],name='email_constraint')
         ]
 
     def __str__(self):
-        return self.name
+        return self.first_name
     

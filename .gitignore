@@ -3,3 +3,8 @@ __pycache__
 data.json
 test.py
 .elasticbeanstalk/
+venv/
+*migrations/
+.env
+
+accounts/migrations
