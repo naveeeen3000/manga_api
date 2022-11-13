@@ -71,13 +71,14 @@ WSGI_APPLICATION = 'manga_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST' : config("MYSQL_HOST"),
-        'NAME': config("DATABASE"),
-        'USER': config("MYSQL_USER"),
-        'USER': "admin",
-        'PASSWORD' : config("PASSWORD"),
-        'PORT' : config("PORT")
+        'NAME':"django.db.backends.sqlite3",
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'HOST' : config("MYSQL_HOST"),
+        # 'NAME': config("DATABASE"),
+        # 'USER': config("MYSQL_USER"),
+        # 'USER': "admin",
+        # 'PASSWORD' : config("PASSWORD"),
+        # 'PORT' : config("PORT")
     }
 }
 
@@ -100,7 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+AUTH_USER_MODEL="accounts.MangaUser"
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
