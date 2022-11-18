@@ -1,10 +1,11 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext as _
-
-
-
+from rest_framework.authtoken.models import Token
+from django.contrib.auth.models import Permission
 class MangaUserManager(BaseUserManager):
     
+    def __init__(self) -> None:
+        super(MangaUserManager,self).__init__()
 
     def create_user(self,email,password, **extra_fields):
         if not email:
@@ -13,6 +14,8 @@ class MangaUserManager(BaseUserManager):
         user = self.model(email=email,**extra_fields)
         user.set_password(password)
         user.save()
+        token=Token.objects.get_or_create(user=user)[0]
+        user.user_token=token
         return user
 
     def create_superuser(self,email,password,**extra_fields):

@@ -71,14 +71,12 @@ WSGI_APPLICATION = 'manga_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME':"django.db.backends.sqlite3",
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'HOST' : config("MYSQL_HOST"),
-        # 'NAME': config("DATABASE"),
-        # 'USER': config("MYSQL_USER"),
-        # 'USER': "admin",
-        # 'PASSWORD' : config("PASSWORD"),
-        # 'PORT' : config("PORT")
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST' : config("MYSQL_HOST"),
+        'NAME': config("DATABASE"),
+        'USER': config("MYSQL_USER"),
+        'PASSWORD' : config("PASSWORD"),
+        'PORT' : config("PORT")
     }
 }
 
