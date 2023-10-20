@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  django-app:
+    build: . # build from Dockerfile
+    volumes: # mount volume
+      - .:/app # mount local folder to docker folder
+    command: python manage.py runserver 0.0.0.0:3000
+    ports: # expose port
+      - 3000:3000 # local:docker
+    env_file: # load env file
+      - ./.env.dev # load local env file
