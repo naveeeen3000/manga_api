@@ -7,10 +7,12 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 RUN pip3 install --upgrade pip
+RUN python3 -m venv env
+RUN source env/bin/activate
 COPY ./requirements.txt .
 RUN pip3 install -r requirements.txt
 
-COPY .env.dev /app/.env
+COPY .env /app/.env
 
 COPY . /app
 RUN addgroup -S manga_app && adduser -S naveen -G manga_app

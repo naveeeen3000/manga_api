@@ -1,7 +1,5 @@
 from pymongo import MongoClient
 from decouple import config
-import dns
-import random
 import uuid
 import bcrypt
 from uuid import uuid4
@@ -55,5 +53,9 @@ def validate_login_creds(data):
 
 
 def generate_user_token():
-
     return uuid4()
+
+def to_bool(val:str):
+    if val.lower() == 'false':
+        return False
+    return True
