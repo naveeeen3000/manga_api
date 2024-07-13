@@ -6,6 +6,12 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+RUN apk update && apk add --no-cache \
+    mariadb-connector-c-dev \
+    gcc \
+    musl-dev \
+    linux-headers
+
 RUN pip3 install --upgrade pip
 RUN python3 -m venv env
 RUN source env/bin/activate
