@@ -12,8 +12,6 @@ RUN source env/bin/activate
 COPY ./requirements.txt .
 RUN pip3 install -r requirements.txt
 
-COPY .env /app/.env
-
 COPY . /app
 RUN addgroup -S manga_app && adduser -S naveen -G manga_app
 USER naveen
