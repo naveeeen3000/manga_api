@@ -57,6 +57,10 @@ CORS_ALLOWED_ORIGINS = [
     'https://api.naveenkumar.world'
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.naveenkumar.world'
+]
+
 ROOT_URLCONF = 'manga_api.urls'
 
 TEMPLATES = [
