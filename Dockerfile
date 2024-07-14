@@ -23,9 +23,9 @@ RUN addgroup -S manga_app && adduser -S naveen -G manga_app
 USER naveen
 
 EXPOSE 3000
-CMD ["gunicorn", "--bind", "--workers", "4"
-"--worker-class", "gthread"
+CMD ["gunicorn", "--bind", "--workers", "4",
+"--worker-class", "gthread",
 "0.0.0.0:3000", "--log-level", "INFO",
 "--log-file", "/var/log/manga/log_manga.log",
-"--access-logfile", "/var/log/manga/manga_access.log"
+"--access-logfile", "/var/log/manga/manga_access.log",
 "manga_api.wsgi:application"]
