@@ -19,6 +19,7 @@ COPY ./requirements.txt .
 RUN pip3 install -r requirements.txt
 
 COPY . /app
+RUN mkdir /var/log/manga
 RUN addgroup -S manga_app && adduser -S naveen -G manga_app
 USER naveen
 
