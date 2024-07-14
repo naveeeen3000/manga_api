@@ -8,6 +8,8 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 DEBUG = to_bool(config("DEBUG"))
 
 ALLOWED_HOSTS = [
+    'api.naveenkumar.world',
+    'naveenkumar.world'
     'https://naveenkumar.world',
     'https://api.naveenkumar.world'
     ]
