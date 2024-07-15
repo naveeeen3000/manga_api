@@ -84,14 +84,14 @@ WSGI_APPLICATION = 'manga_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('MYSQL_DATABASE'),
-        'USER': config('MYSQL_USER'),
-        'PASSWORD': config('MYSQL_PASSWORD'),
-        'HOST': config('MYSQL_HOST'),
-        'PORT': config('MYSQL_PORT')
-    },
-    'test': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': config('MYSQL_DATABASE'),
+    #     'USER': config('MYSQL_USER'),
+    #     'PASSWORD': config('MYSQL_PASSWORD'),
+    #     'HOST': config('MYSQL_HOST'),
+    #     'PORT': config('MYSQL_PORT')
+    # },
+    # 'test': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
@@ -134,7 +134,7 @@ USE_TZ = True
 
 import os
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = 'staticfiles'
 
 
 # Default primary key field type
